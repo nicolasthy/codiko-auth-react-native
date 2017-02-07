@@ -1,17 +1,24 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, applyMiddleware } from 'redux'
+import { setEndpointHost, setEndpointPath, setHeaders } from 'redux-json-api'
+
+import { store } from './store'
 import reducers from './reducers'
 
-import { View, Text } from 'react-native'
+import {
+  CONTENT_TYPE_HEADER,
+  ACCEPT_HEADER,
+  AUTHORIZATION_HEADER
+} from './config'
 
-import LoginForm from './components/LoginForm'
+import Router from './Router'
 
 class App extends Component {
   render() {
     return(
-      <Provider store={createStore(reducers)}>
-        <LoginForm />
+      <Provider store={store}>
+        <Router />
       </Provider>
     )
   }

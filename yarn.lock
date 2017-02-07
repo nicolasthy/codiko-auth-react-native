@@ -672,7 +672,7 @@ babel-preset-jest@^18.0.0:
   dependencies:
     babel-plugin-jest-hoist "^18.0.0"
 
-babel-preset-react-native@1.9.1, babel-preset-react-native@^1.9.1:
+babel-preset-react-native@1.9.1, babel-preset-react-native@^1.9.0, babel-preset-react-native@^1.9.1:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/babel-preset-react-native/-/babel-preset-react-native-1.9.1.tgz#ec8e378274410d78f550fa9f8edd70353f3bb2fe"
   dependencies:
@@ -928,6 +928,10 @@ ci-info@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.0.0.tgz#dc5285f2b4e251821683681c381c3388f46ec534"
 
+clamp@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/clamp/-/clamp-1.0.1.tgz#66a0e64011816e37196828fdc8c8c147312c8634"
+
 cli-cursor@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/cli-cursor/-/cli-cursor-1.0.2.tgz#64da3f7d56a54412e59794bd62dc35295e8f2987"
@@ -1177,6 +1181,10 @@ decamelize@^1.0.0, decamelize@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
+deep-equal@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
+
 deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
@@ -1393,7 +1401,7 @@ fbjs-scripts@^0.7.0:
     semver "^5.1.0"
     through2 "^2.0.0"
 
-fbjs@^0.8.4, fbjs@^0.8.5:
+fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.5:
   version "0.8.9"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.9.tgz#180247fbd347dcc9004517b904f865400a0c8f14"
   dependencies:
@@ -1404,6 +1412,13 @@ fbjs@^0.8.4, fbjs@^0.8.5:
     promise "^7.1.1"
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.9"
+
+fetch-everywhere@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/fetch-everywhere/-/fetch-everywhere-1.0.5.tgz#b2497f47a57d9026b3907c09756acf5f4bd34e8b"
+  dependencies:
+    node-fetch "^1.0.1"
+    whatwg-fetch ">=0.10.0"
 
 figures@^1.3.5:
   version "1.7.0"
@@ -1448,6 +1463,12 @@ find-up@^1.0.0, find-up@^1.1.2:
   dependencies:
     path-exists "^2.0.0"
     pinkie-promise "^2.0.0"
+
+flux-standard-action@^0.6.0:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/flux-standard-action/-/flux-standard-action-0.6.1.tgz#6f34211b94834ea1c3cc30f4e7afad3d0fbf71a2"
+  dependencies:
+    lodash.isplainobject "^3.2.0"
 
 for-in@^0.1.5:
   version "0.1.6"
@@ -2218,7 +2239,7 @@ json-stable-stringify@^1.0.0, json-stable-stringify@^1.0.1:
   dependencies:
     jsonify "~0.0.0"
 
-json-stringify-safe@~5.0.1:
+json-stringify-safe@^5.0.1, json-stringify-safe@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/json-stringify-safe/-/json-stringify-safe-5.0.1.tgz#1296a2d58fd45f19a0f6ce01d65701e2c735b6eb"
 
@@ -2295,7 +2316,7 @@ load-json-file@^1.0.0:
     pinkie-promise "^2.0.0"
     strip-bom "^2.0.0"
 
-lodash-es@^4.2.0, lodash-es@^4.2.1:
+lodash-es@^4.16.0, lodash-es@^4.2.0, lodash-es@^4.2.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.4.tgz#dcc1d7552e150a0640073ba9cb31d70f032950e7"
 
@@ -2394,11 +2415,26 @@ lodash.isarray@^3.0.0:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/lodash.isarray/-/lodash.isarray-3.0.4.tgz#79e4eb88c36a8122af86f844aa9bcd851b5fbb55"
 
+lodash.isplainobject@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-3.2.0.tgz#9a8238ae16b200432960cd7346512d0123fbf4c5"
+  dependencies:
+    lodash._basefor "^3.0.0"
+    lodash.isarguments "^3.0.0"
+    lodash.keysin "^3.0.0"
+
 lodash.keys@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash.keys/-/lodash.keys-3.1.2.tgz#4dbc0472b156be50a0b286855d1bd0b0c656098a"
   dependencies:
     lodash._getnative "^3.0.0"
+    lodash.isarguments "^3.0.0"
+    lodash.isarray "^3.0.0"
+
+lodash.keysin@^3.0.0:
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.keysin/-/lodash.keysin-3.0.8.tgz#22c4493ebbedb1427962a54b445b2c8a767fb47f"
+  dependencies:
     lodash.isarguments "^3.0.0"
     lodash.isarray "^3.0.0"
 
@@ -2443,7 +2479,7 @@ lodash@^3.5.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
 
-lodash@^4.14.0, lodash@^4.16.6, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.11.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
@@ -2707,6 +2743,10 @@ object-assign@^4.0.1, object-assign@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
 
+object-path-immutable@^0.5.0:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/object-path-immutable/-/object-path-immutable-0.5.1.tgz#4371599ab2b914750c51be96a4801dbdc4d5a4b3"
+
 object.omit@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/object.omit/-/object.omit-2.0.1.tgz#1a9c744829f39dbb858c76ca3579ae2a54ebd1fa"
@@ -2852,6 +2892,10 @@ plist@1.2.0, plist@^1.2.0:
     xmlbuilder "4.0.0"
     xmldom "0.1.x"
 
+pluralize@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-1.2.1.tgz#d1a21483fd22bb41e58a12fa3421823140897c45"
+
 prelude-ls@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
@@ -2927,6 +2971,10 @@ raw-body@~2.1.2:
     iconv-lite "0.4.13"
     unpipe "1.0.0"
 
+react-addons-pure-render-mixin@15.0.2, react-addons-pure-render-mixin@^15.0.2:
+  version "15.0.2"
+  resolved "https://registry.yarnpkg.com/react-addons-pure-render-mixin/-/react-addons-pure-render-mixin-15.0.2.tgz#b7731c5cc7f21214d68a78c84f40df3aefdf462f"
+
 react-clone-referenced-element@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-clone-referenced-element/-/react-clone-referenced-element-1.0.1.tgz#2bba8c69404c5e4a944398600bcc4c941f860682"
@@ -2934,6 +2982,30 @@ react-clone-referenced-element@^1.0.1:
 react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
+
+react-native-experimental-navigation@0.26.x:
+  version "0.26.10"
+  resolved "https://registry.yarnpkg.com/react-native-experimental-navigation/-/react-native-experimental-navigation-0.26.10.tgz#355e37929a2bfb84088dca331f34bc575297df68"
+  dependencies:
+    babel-plugin-syntax-flow "^6.8.0"
+    babel-plugin-transform-flow-strip-types "^6.8.0"
+    babel-preset-react-native "^1.9.0"
+    clamp "^1.0.1"
+    fbjs "^0.8.1"
+    react-addons-pure-render-mixin "^15.0.2"
+
+react-native-router-flux@3.35.0:
+  version "3.35.0"
+  resolved "https://registry.yarnpkg.com/react-native-router-flux/-/react-native-router-flux-3.35.0.tgz#1ca65abe81ad3641c324d8c20fc0b90f275361c7"
+  dependencies:
+    react-addons-pure-render-mixin "15.0.2"
+    react-native-experimental-navigation "0.26.x"
+    react-native-tabs "^1.0.9"
+    react-static-container "1.0.1"
+
+react-native-tabs@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-tabs/-/react-native-tabs-1.0.9.tgz#75d3c35e8b5b6970869eab282372cb32e2a782cd"
 
 react-native@0.41.2:
   version "0.41.2"
@@ -3032,6 +3104,10 @@ react-redux@^5.0.2:
     lodash-es "^4.2.0"
     loose-envify "^1.1.0"
 
+react-static-container@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-static-container/-/react-static-container-1.0.1.tgz#694c0dd68a896b879519afb548399cc1989c9ab0"
+
 react-test-renderer@~15.4.0:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.4.2.tgz#27e1dff5d26d0e830f99614c487622bc831416f3"
@@ -3111,6 +3187,39 @@ redeyed@~1.0.0:
   resolved "https://registry.yarnpkg.com/redeyed/-/redeyed-1.0.1.tgz#e96c193b40c0816b00aec842698e61185e55498a"
   dependencies:
     esprima "~3.0.0"
+
+reduce-reducers@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
+
+redux-actions@^0.9.1:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-0.9.1.tgz#a72767654bc21424c3df3f6240780ffa8872783c"
+  dependencies:
+    flux-standard-action "^0.6.0"
+    reduce-reducers "^0.1.0"
+
+redux-json-api@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/redux-json-api/-/redux-json-api-1.7.0.tgz#b7392bb69883c823c38d5f06fbb58a5563cc042b"
+  dependencies:
+    deep-equal "^1.0.1"
+    fetch-everywhere "^1.0.5"
+    object-path-immutable "^0.5.0"
+    pluralize "^1.2.1"
+    redux-actions "^0.9.1"
+
+redux-persist@^4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-4.3.0.tgz#93484d103ece3bbc1c2bbac3914272846752d386"
+  dependencies:
+    json-stringify-safe "^5.0.1"
+    lodash "^4.11.1"
+    lodash-es "^4.16.0"
+
+redux-thunk@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
 
 redux@^3.6.0:
   version "3.6.0"

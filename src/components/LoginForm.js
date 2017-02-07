@@ -1,16 +1,30 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { emailChanged, passwordChanged } from '../actions'
+import { usernameChanged, passwordChanged, loginUser } from '../actions'
+import { store } from '../store'
 
-import { Card, CardSection, Input, Button } from './common'
+import { Text } from 'react-native'
+import { Card, CardSection, Input, Button, Spinner } from './common'
 
 class LoginForm extends Component {
-  onEmailChange(text) {
-    this.props.emailChanged(text)
+  onUsernameChange(text) {
+    store.dispatch(usernameChanged(text))
   }
 
   onPasswordChanged(text) {
-    this.props.passwordChanged(text)
+    store.dispatch(passwordChanged(text))
+  }
+
+  onButtonPressed() {
+    const { username, password } = this.props
+    store.dispatch(loginUser({username, password}))
+  }
+
+  renderButton() {
+    if (this.props.loading) {
+      return <Spinner size="large" />
+    }
+    return <Button onPress={this.onButtonPressed.bind(this)}>Login</Button>
   }
 
   render() {
@@ -20,8 +34,8 @@ class LoginForm extends Component {
           <Input
             label="Email"
             placeholder="email@gmail.com"
-            onChangeText={this.onEmailChange.bind(this)}
-            value={this.props.email}
+            onChangeText={this.onUsernameChange.bind(this)}
+            value={this.props.username}
           />
         </CardSection>
 
@@ -30,24 +44,35 @@ class LoginForm extends Component {
             secureTextEntry
             label="Password"
             placeholder="••••••"
-            onChangedText={this.onPasswordChanged.bind(this)}
+            onChangeText={this.onPasswordChanged.bind(this)}
             value={this.props.password}
           />
         </CardSection>
 
+        <Text style={styles.errorTextStyle}>
+          {this.props.error}
+        </Text>
+
         <CardSection>
-          <Button>Login</Button>
+          {this.renderButton()}
         </CardSection>
       </Card>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    email: state.auth.email,
-    password: state.auth.password
+const styles = {
+  errorTextStyle: {
+    fontSize: 20,
+    alignSelf: 'center',
+    color: 'red'
   }
 }
 
-export default connect(mapStateToProps, { emailChanged, passwordChanged })(LoginForm)
+const mapStateToProps = ({ auth }) => {
+  const { username, password, error, loading } = auth
+
+  return { username, password, error, loading }
+}
+
+export default connect(mapStateToProps)(LoginForm)
