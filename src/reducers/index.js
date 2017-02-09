@@ -1,8 +1,9 @@
-import { combineReducers } from 'redux'
-import AuthReducer from './AuthReducer'
-import { reducer as api } from 'redux-json-api'
+import { combineReducers } from 'redux';
+import { reducer as api } from 'redux-json-api';
+
+import AuthReducer from './AuthReducer';
 
 export default combineReducers({
   api,
   auth: AuthReducer
-})
+});

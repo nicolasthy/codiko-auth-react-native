@@ -1,11 +1,14 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 
-const Button = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
-
+const Button = ({ onPress, children, disabled }) => {
+  const { buttonStyle, textStyle, disabledStyle } = styles;
   return (
-    <TouchableOpacity onPress={onPress} style={buttonStyle}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={disabled ? disabledStyle : buttonStyle}
+      disabled={disabled}
+    >
       <Text style={textStyle}>
         {children}
       </Text>
@@ -16,7 +19,7 @@ const Button = ({ onPress, children }) => {
 const styles = {
   textStyle: {
     alignSelf: 'center',
-    color: '#007aff',
+    color: '#fff',
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
@@ -25,12 +28,18 @@ const styles = {
   buttonStyle: {
     flex: 1,
     alignSelf: 'stretch',
-    backgroundColor: '#fff',
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#007aff',
-    marginLeft: 5,
-    marginRight: 5
+    backgroundColor: '#9dc02d',
+    borderWidth: 0,
+    marginLeft: 10,
+    marginRight: 10
+  },
+  disabledStyle: {
+    flex: 1,
+    alignSelf: 'stretch',
+    backgroundColor: '#cedf96',
+    borderWidth: 0,
+    marginLeft: 10,
+    marginRight: 10
   }
 };
 
