@@ -6,6 +6,7 @@ import { store } from '../store';
 import { TabBar } from './common';
 
 import Stats from './Stats';
+import Home from './Home';
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -17,15 +18,15 @@ class Dashboard extends Component {
     return (
       <ScrollableTabView
         initialPage={1}
-        style={{ marginTop: 15 }}
+        style={{ marginTop: 20 }}
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         renderTabBar={() => <TabBar />}
       >
         <ScrollView tabLabel="md-podium">
           <Stats />
         </ScrollView>
-        <ScrollView tabLabel="md-speedometer">
-          <Text>Codiko</Text>
+        <ScrollView tabLabel="md-speedometer" scrollEnabled={false}>
+          <Home />
         </ScrollView>
         <ScrollView tabLabel="md-person">
           <Text>Settings</Text>

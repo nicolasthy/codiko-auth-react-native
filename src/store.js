@@ -1,7 +1,7 @@
 import { compose, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { persistStore, autoRehydrate } from 'redux-persist';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage, Platform } from 'react-native';
 import { setEndpointHost, setEndpointPath, setHeaders } from 'redux-json-api';
 import { Actions, ActionConst } from 'react-native-router-flux';
 
@@ -36,7 +36,9 @@ export const persistor = persistStore(store, { storage: AsyncStorage }, () => {
 //   .then((data) => console.log(data))
 
 // Configure JSON API
-store.dispatch(setEndpointHost('http://localhost:5000'));
+const HOST = (Platform.OS === 'ios') ? 'http://localhost:5000' : 'http://10.0.2.2:5000';
+
+store.dispatch(setEndpointHost(HOST));
 store.dispatch(setEndpointPath('/api'));
 store.dispatch(setHeaders({
   'Content-Type': CONTENT_TYPE_HEADER,

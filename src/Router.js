@@ -5,6 +5,7 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 import SplashScreen from './components/SplashScreen';
 import StatsDetail from './components/stats/StatsDetail';
+import Viewer from './components/Viewer';
 
 const RouterComponent = () => {
   return (
@@ -25,7 +26,25 @@ const RouterComponent = () => {
           title="Dashboard"
           hideNavBar
         />
-        <Scene key="statsDetail" component={StatsDetail} title="Statistiques" />
+
+        <Scene
+          key="statsDetail"
+          component={StatsDetail}
+          title="Statistiques"
+          hideNavBar={false}
+          sceneStyle={{ backgroundColor: '#fafafa' }}
+          leftButtonIconStyle={{ tintColor: '#A7CD2C', marginLeft: 5 }}
+          navigationBarStyle={{
+            backgroundColor: '#fff',
+            borderBottomWidth: 0.5,
+            borderBottomColor: '#afafaf'
+          }}
+          titleStyle={{ color: '#262626', fontWeight: '600' }}
+        />
+      </Scene>
+
+      <Scene key="training">
+        <Scene key="viewer" component={Viewer} hideNavBar initial panHandlers={null} />
       </Scene>
     </Router>
   );

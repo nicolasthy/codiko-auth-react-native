@@ -4,8 +4,8 @@ import { View, Text } from 'react-native';
 class StatsDetail extends Component {
   render() {
     return (
-      <View>
-        <Text>Stats for coucou</Text>
+      <View style={{ paddingTop: 65 }}>
+        <Text>Stats for {this.props.statsType}</Text>
       </View>
     );
   }

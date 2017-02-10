@@ -22,7 +22,7 @@ const TabBar = React.createClass({
       icon.setNativeProps({
         style: {
           color: this.iconColor(progress),
-          fontSize: 35 + (20 - 35) * progress
+          fontSize: 45 + (30 - 45) * progress
         },
       });
     });
@@ -43,7 +43,7 @@ const TabBar = React.createClass({
           <TouchableOpacity key={tab} onPress={() => this.props.goToPage(i)} style={styles.tab}>
             <Icon
               name={tab}
-              size={this.props.activeTab === i ? 35 : 20}
+              size={this.props.activeTab === i ? 45 : 30}
               color={this.props.activeTab === i ? 'rgb(157,192,45)' : 'rgb(204,204,204)'}
               ref={(icon) => { this.tabIcons[i] = icon; }}
             />

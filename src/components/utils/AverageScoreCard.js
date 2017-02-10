@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 
-import { Actions } from 'react-native-router-flux';
+import { Actions, ActionConst } from 'react-native-router-flux';
 
 class AverageScoreCard extends Component {
   onCardPress() {
-    Actions.statsDetail({ type: this.props.type });
+    Actions.statsDetail({ statsType: this.props.type });
   }
 
   render() {
@@ -61,11 +61,12 @@ const styles = {
   },
   textStyle: {
     color: '#fff',
+    fontWeight: '500',
     width: 120
   },
   scoreTextStyle: {
     color: '#fff',
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: '700',
     textShadowColor: 'rgba(0,0,0, 0.03)',
     textShadowOffset: { width: 2, height: 2 }
@@ -74,12 +75,12 @@ const styles = {
     color: '#fff',
     paddingBottom: 4,
     paddingLeft: 2,
-    fontSize: 16
+    fontSize: 18
   },
   smallTextStyle: {
     opacity: 0.8,
     color: '#fff',
-    fontSize: 10
+    fontSize: 12
   }
 };
 
