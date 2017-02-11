@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Dimensions } from 'react-native';
 
 import { TrainingCard } from './utils/TrainingCard';
 
 class Home extends Component {
   render() {
     return (
-      <View>
-        <View style={{ flex: 1, alignSelf: 'center', marginTop: 90 }}>
+      <View style={{ flex: 1, alignSelf: 'stretch', height: Dimensions.get('window').height - 105 }}>
+        <View style={{ flex: 2, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.subTitleStyle}>BIENVENUE SUR</Text>
           <Image
             source={require('../images/logo-black.png')}
@@ -17,7 +17,7 @@ class Home extends Component {
           />
         </View>
 
-        <View style={{ flex: 1, flexDirection: 'column', marginTop: 80 }}>
+        <View style={{ flex: 2, justifyContent: 'flex-start', flexGrow: 4 }}>
           <TrainingCard
             trainingType='thématique'
             trainingLabel='Entrainez vous par Thématique et renforcez vos connaissances'

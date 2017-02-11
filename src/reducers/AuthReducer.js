@@ -10,7 +10,7 @@ import {
 const INITIAL_STATE = {
   username: '',
   password: '',
-  access_token: '',
+  access_token: 'aaa',
   error: '',
   loading: false
 };

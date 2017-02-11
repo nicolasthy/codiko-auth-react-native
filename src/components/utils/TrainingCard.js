@@ -39,7 +39,8 @@ const styles = {
     flexDirection: 'row',
     marginLeft: 20,
     marginRight: 20,
-    marginTop: 15,
+    marginTop: 7,
+    marginBottom: 7,
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.1
@@ -47,8 +48,8 @@ const styles = {
   textContainerStyle: {
     flex: 1,
     paddingLeft: 20,
-    paddingTop: 15,
-    paddingBottom: 15,
+    paddingTop: 25,
+    paddingBottom: 25,
     paddingRight: 10
   },
   iconContainerStyle: {
@@ -60,11 +61,11 @@ const styles = {
   textStyle: {
     color: '#fff',
     fontWeight: '500',
-    fontSize: 14
+    fontSize: 17
   },
   subTitleTextStyle: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 14,
     opacity: 0.9,
   }
 };
