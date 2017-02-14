@@ -39,15 +39,14 @@ class AverageScoreCard extends Component {
 
 const styles = {
   containerStyle: {
-    flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginLeft: 20,
     marginRight: 20,
     marginTop: 15,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 15,
+    paddingLeft: 25,
+    paddingRight: 25,
+    paddingTop: 20,
     paddingBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },
@@ -60,13 +59,14 @@ const styles = {
     backgroundColor: '#50C8C6'
   },
   textStyle: {
+    fontSize: 16,
     color: '#fff',
     fontWeight: '500',
     width: 120
   },
   scoreTextStyle: {
     color: '#fff',
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: '700',
     textShadowColor: 'rgba(0,0,0, 0.03)',
     textShadowOffset: { width: 2, height: 2 }
@@ -75,7 +75,7 @@ const styles = {
     color: '#fff',
     paddingBottom: 4,
     paddingLeft: 2,
-    fontSize: 18
+    fontSize: 20
   },
   smallTextStyle: {
     opacity: 0.8,

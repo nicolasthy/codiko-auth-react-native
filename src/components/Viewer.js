@@ -6,12 +6,14 @@ import { Actions, ActionConst } from 'react-native-router-flux';
 
 class Viewer extends Component {
   componentWillMount() {
+    Orientation.lockToLandscapeLeft();
+    Orientation.unlockAllOrientations();
     Orientation.lockToLandscape();
   }
 
   onBackPress() {
-    Orientation.lockToPortrait();
     Orientation.unlockAllOrientations();
+    Orientation.lockToPortrait();
     Actions.main({ type: ActionConst.RESET });
   }
 

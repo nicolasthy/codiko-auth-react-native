@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
 import { View, Text, Image, Dimensions } from 'react-native';
+import Orientation from 'react-native-orientation';
 
 import { TrainingCard } from './utils/TrainingCard';
 
 class Home extends Component {
   render() {
+    const { width, height } = Dimensions.get('window');
+    const screenHeight = (height > width) ? (height - 105) : (width - 105);
+
     return (
-      <View style={{ flex: 1, alignSelf: 'stretch', height: Dimensions.get('window').height - 105 }}>
+      <View style={{ flex: 1, alignSelf: 'stretch', height: screenHeight }}>
         <View style={{ flex: 2, alignSelf: 'center', alignItems: 'center', justifyContent: 'center' }}>
           <Text style={styles.subTitleStyle}>BIENVENUE SUR</Text>
           <Image
