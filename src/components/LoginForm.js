@@ -1,13 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, Alert, Dimensions, StatusBar } from 'react-native';
+import { View, Text, Alert, StatusBar } from 'react-native';
 
-import { usernameChanged, passwordChanged, loginUser, loginUserRetry } from '../actions';
+import {
+  usernameChanged,
+  passwordChanged,
+  loginUser,
+  loginUserRetry
+} from '../actions';
+
 import { store } from '../store';
 
-import { Card, CardSection, Input, Button, Spinner } from './common';
+import { Input, Button, Spinner } from './common';
+import { HeaderLogo, FooterOffer } from './utils';
 
 class LoginForm extends Component {
+  componentWillMount() {
+    StatusBar.setBarStyle('light-content', true);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.triggerAlert(nextProps);
+  }
+
   onUsernameChange(text) {
     store.dispatch(usernameChanged(text));
   }
@@ -21,8 +36,8 @@ class LoginForm extends Component {
     store.dispatch(loginUser({ username, password }));
   }
 
-  triggerAlert() {
-    if (this.props.error) {
+  triggerAlert(props) {
+    if (props.error) {
       Alert.alert('Erreur de connexion', 'Les identifiants saisis sont incorrects.', [{
         text: 'Reesayer', onPress: () => store.dispatch(loginUserRetry())
       }], { cancelable: false });
@@ -44,77 +59,93 @@ class LoginForm extends Component {
   }
 
   render() {
-    this.triggerAlert();
-    StatusBar.setBarStyle('light-content', true);
-
     return (
-      <View>
-        <Card style={{ marginTop: 0, marginLeft: 0, marginRight: 0 }}>
-          <CardSection style={{ height: Dimensions.get('window').height / 4.5, backgroundColor: '#202328', marginBottom: 30 }}>
-            <View style={{ flex: 1, alignItems: 'center', alignSelf: 'center' }}>
-              <Text style={{ fontSize: 36, fontWeight: '800', color: '#fff' }}>CODIKO</Text>
+      <View style={styles.containerStyle}>
+        <HeaderLogo />
+        <View>
+          <Text style={styles.descriptionTextStyle}>Entraînez vous au code de la route avec Codiko et profitez de 1600 questions de code en ligne ainsi que de nombreux tests.</Text>
+        </View>
+        <View style={styles.formContainerStyle}>
+          <View style={styles.formStyle}>
+            <View style={styles.inputContainerStyle}>
+              <Input
+                label="Email"
+                placeholder="Adresse e-mail"
+                onChangeText={this.onUsernameChange.bind(this)}
+                value={this.props.username}
+                autoCapitalize='none'
+                inputCustomStyle={{ borderBottomWidth: 0.5, borderBottomColor: '#ddd' }}
+                keyboardType='email-address'
+              />
             </View>
-          </CardSection>
-
-          <CardSection>
-            <Input
-              label="Email"
-              placeholder="Adresse e-mail"
-              onChangeText={this.onUsernameChange.bind(this)}
-              value={this.props.username}
-              autoCapitalize='none'
-            />
-          </CardSection>
-
-          <CardSection style={{ paddingTop: 0 }}>
-            <Input
-              secureTextEntry
-              label="Password"
-              placeholder="Mot de passe"
-              onChangeText={this.onPasswordChanged.bind(this)}
-              value={this.props.password}
-            />
-          </CardSection>
-
-          <CardSection style={{ paddingTop: 15 }}>
+            <View style={styles.inputContainerStyle}>
+              <Input
+                secureTextEntry
+                label="Password"
+                placeholder="Mot de passe"
+                onChangeText={this.onPasswordChanged.bind(this)}
+                value={this.props.password}
+              />
+            </View>
+          </View>
+          <View style={styles.buttonContainerStyle}>
             {this.renderButton()}
-          </CardSection>
-
-          <CardSection>
-            <View style={{ flex: 1, flexDirection: 'column' }}>
-              <Text style={styles.smallTextStyle}>
-                Vous avez oublié vos identifiants de connexion?
-              </Text>
-              <Text style={styles.smallTextStyle}>Mot de passe oublié</Text>
-            </View>
-          </CardSection>
-
-          <CardSection>
-            <View style={{ flex: 1, flexDirection: 'column' }}>
-              <Text style={styles.smallTextStyle}>ou</Text>
-            </View>
-          </CardSection>
-
-          <CardSection>
-            <View style={{ flex: 1, flexDirection: 'column' }}>
-              <Text style={styles.smallTextStyle}>Se connecter avec Facebook</Text>
-            </View>
-          </CardSection>
-
-          <CardSection style={{ flexDirection: 'row', alignSelf: 'center', alignItems: 'flex-end' }}>
-            <Text>Vous n'avez pas de compte ? Inscrivez-vous</Text>
-          </CardSection>
-        </Card>
+          </View>
+        </View>
+        <View style={styles.footerContainerStyle}>
+          <Text style={styles.footerTextStyle}>Mot de passe oublié?</Text>
+          <FooterOffer />
+        </View>
       </View>
     );
   }
 }
 
 const styles = {
-  smallTextStyle: {
-    fontSize: 12,
+  containerStyle: {
+    flex: 1,
+    backgroundColor: '#373b46'
+  },
+  formContainerStyle: {
+    flex: 3,
+    justifyContent: 'center',
+    marginTop: 15
+  },
+  footerContainerStyle: {
+    flex: 3,
+    justifyContent: 'flex-end'
+  },
+  descriptionTextStyle: {
+    color: '#fff',
+    fontSize: 13,
     textAlign: 'center',
-    color: '#ddd'
+    marginLeft: 50,
+    marginRight: 50
+  },
+  formStyle: {
+    backgroundColor: '#fff',
+    marginLeft: 25,
+    marginRight: 25,
+    marginBottom: 5,
+    padding: 2,
+    borderRadius: 3,
+    justifyContent: 'flex-start'
+  },
+  inputContainerStyle: {
+    flexGrow: 1,
+  },
+  buttonContainerStyle: {
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    position: 'relative',
+    marginLeft: 15,
+    marginRight: 15
+  },
+  footerTextStyle: {
+    color: '#fff',
+    fontSize: 11,
+    margin: 15,
+    textAlign: 'center'
   }
 };
 

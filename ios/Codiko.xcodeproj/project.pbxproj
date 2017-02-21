@@ -1130,7 +1130,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.nicolasthy.Codiko;
+				PRODUCT_BUNDLE_IDENTIFIER = org.nicolasthy.permigo.codiko;
 				PRODUCT_NAME = Codiko;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1150,7 +1150,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.nicolasthy.Codiko;
+				PRODUCT_BUNDLE_IDENTIFIER = org.nicolasthy.permigo.codiko;
 				PRODUCT_NAME = Codiko;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

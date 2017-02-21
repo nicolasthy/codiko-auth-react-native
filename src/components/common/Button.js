@@ -31,7 +31,7 @@ const styles = {
     backgroundColor: '#9dc02d',
     borderWidth: 0,
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
   },
   disabledStyle: {
     flex: 1,

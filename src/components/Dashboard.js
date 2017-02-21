@@ -12,6 +12,7 @@ import Profile from './Profile';
 
 class Dashboard extends Component {
   componentWillMount() {
+    console.log(store.getState());
     StatusBar.setBarStyle('dark-content', true);
     Orientation.lockToPortrait();
   }

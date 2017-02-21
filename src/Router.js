@@ -8,14 +8,21 @@ import StatsDetail from './components/stats/StatsDetail';
 import Viewer from './components/Viewer';
 
 const RouterComponent = () => {
+  const getSceneStyle = () => {
+    const style = {
+      backgroundColor: '#373b46',
+    };
+    return style;
+  };
+
   return (
     <Router>
       <Scene key="initial" initial>
         <Scene key="splash" component={SplashScreen} title="Splash" hideNavBar />
       </Scene>
 
-      <Scene key="auth">
-        <Scene key="login" component={LoginForm} title="Login" hideNavBar />
+      <Scene key="auth" getSceneStyle={getSceneStyle}>
+        <Scene key="login" component={LoginForm} initial direction="vertical" title="Login" hideNavBar />
       </Scene>
 
       <Scene key="main" panHandlers={null}>
