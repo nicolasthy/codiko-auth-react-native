@@ -30,7 +30,7 @@ export const persistor = persistStore(store, { storage: AsyncStorage }, () => {
     }
   }, 2000);
 });
-persistor.purge();
+// persistor.purge();
 
 // AsyncStorage.getItem('reduxPersist:auth')
 //   .then((data) => console.log(data))

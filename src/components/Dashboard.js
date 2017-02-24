@@ -8,7 +8,7 @@ import { TabBar } from './common';
 
 import Stats from './Stats';
 import Home from './Home';
-import Profile from './Profile';
+import UserProfile from './UserProfile';
 
 class Dashboard extends Component {
   componentWillMount() {
@@ -20,7 +20,7 @@ class Dashboard extends Component {
   render() {
     return (
       <ScrollableTabView
-        initialPage={1}
+        initialPage={2}
         style={{ marginTop: 20 }}
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         renderTabBar={() => <TabBar />}
@@ -32,7 +32,7 @@ class Dashboard extends Component {
           <Home />
         </ScrollView>
         <ScrollView tabLabel="md-person" scrollEnabled={false}>
-          <Profile />
+          <UserProfile />
         </ScrollView>
       </ScrollableTabView>
     );

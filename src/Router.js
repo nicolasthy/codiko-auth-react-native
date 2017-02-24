@@ -1,7 +1,7 @@
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
 
-import LoginForm from './components/LoginForm';
+import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import SplashScreen from './components/SplashScreen';
 import StatsDetail from './components/stats/StatsDetail';
@@ -22,10 +22,10 @@ const RouterComponent = () => {
       </Scene>
 
       <Scene key="auth" getSceneStyle={getSceneStyle}>
-        <Scene key="login" component={LoginForm} initial direction="vertical" title="Login" hideNavBar />
+        <Scene key="login" component={LoginScreen} initial title="Login" hideNavBar />
       </Scene>
 
-      <Scene key="main" panHandlers={null}>
+      <Scene key="main" panHandlers={null} type="reset">
         <Scene
           sceneStyle={{ paddingTop: 12 }}
           key="dashboard"
