@@ -15,13 +15,7 @@ const UserSubscription = () => {
 };
 
 const styles = {
-  backgroundImageStyle: {
-    flex: 1,
-    width: null,
-    height: null,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
+  
 }
 
 export { UserSubscription };
