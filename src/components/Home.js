@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-
-import { View, Text, Image, Dimensions } from 'react-native';
 import Orientation from 'react-native-orientation';
 
-import { TrainingCard } from './utils/TrainingCard';
+import { View, Text, Image, Dimensions } from 'react-native';
+import { HomeTrainingCard } from './partials/home';
 
 class Home extends Component {
   render() {
@@ -22,21 +21,21 @@ class Home extends Component {
         </View>
 
         <View style={{ flex: 2, justifyContent: 'flex-start', flexGrow: 4 }}>
-          <TrainingCard
+          <HomeTrainingCard
             trainingType='thématique'
             trainingLabel='Entrainez vous par Thématique et renforcez vos connaissances'
             cardBackgroundColor="#A7CD2C"
             cardBackgroundAltColor="#85a323"
           />
 
-          <TrainingCard
+          <HomeTrainingCard
             trainingType='entrainement'
             trainingLabel='Faites des séries de 40 questions multithématiques sans limite de temps'
             cardBackgroundColor="#2c2f36"
             cardBackgroundAltColor="#202328"
           />
 
-          <TrainingCard
+          <HomeTrainingCard
             trainingType='examen'
             trainingLabel='Mettez vous en condition d’examen pour évaluer vos capacités'
             cardBackgroundColor="#50C8C6"

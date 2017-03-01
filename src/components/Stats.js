@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, ListView, Dimensions } from 'react-native';
 
-import { ThematicalListRow } from './utils';
-import AverageScoreCard from './partials/stats/AverageScoreCard';
+import { AverageScoreCard, ThematicalAverageScoreCard } from './partials/stats';
 
 class Stats extends Component {
   renderThemes(themes) {
     return themes.map((theme, key) => {
-      return <ThematicalListRow key={key} theme={theme} />;
+      return <ThematicalAverageScoreCard key={key} theme={theme} />;
     });
   }
 

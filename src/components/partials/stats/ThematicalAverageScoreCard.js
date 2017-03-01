@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { View, Text, TouchableWithoutFeedback } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-import { ProgressBar } from '../common';
+import { ProgressBar } from '../../common';
 
-class ThematicalListRow extends Component {
+class ThematicalAverageScoreCard extends Component {
   onCardPress() {
     const serie = {
       type: 1,
@@ -67,4 +67,4 @@ const styles = {
   }
 }
 
-export { ThematicalListRow };
+export { ThematicalAverageScoreCard };

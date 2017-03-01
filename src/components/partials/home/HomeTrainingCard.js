@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
-
 import { Actions } from 'react-native-router-flux';
+
+import { TouchableWithoutFeedback, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-class TrainingCard extends Component {
+class HomeTrainingCard extends Component {
   onCardPress() {
     Actions.training();
   }
@@ -70,4 +70,4 @@ const styles = {
   }
 };
 
-export { TrainingCard };
+export { HomeTrainingCard };

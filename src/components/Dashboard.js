@@ -23,7 +23,7 @@ class Dashboard extends Component {
   render() {
     return (
       <ScrollableTabView
-        initialPage={1}
+        initialPage={0}
         style={{ marginTop: 20 }}
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         renderTabBar={() => <TabBar />}
