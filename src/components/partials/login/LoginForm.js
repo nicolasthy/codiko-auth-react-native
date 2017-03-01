@@ -39,14 +39,21 @@ class LoginForm extends Component {
                 borderBottomColor: '#ddd'
               }}
               keyboardType='email-address'
+              returnKeyType="next"
+              onSubmitEditing={(event) => {
+                this.refs.passwordInput.refs.input.focus()
+              }}
             />
 
             <Input
+              ref="passwordInput"
               secureTextEntry
               label="Password"
               placeholder="Mot de passe"
               onChangeText={this.props.onPasswordChanged}
               value={this.props.password}
+              returnKeyType="done"
+              onSubmitEditing={this.props.onButtonPressed}
             />
           </View>
         </Row>

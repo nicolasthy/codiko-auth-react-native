@@ -7,7 +7,7 @@ import { store } from '../store';
 import { View, Text, Dimensions } from 'react-native';
 import { Grid, Row } from 'react-native-elements';
 import { Spinner } from './common';
-import { UserInformations, UserSubscription, UserSettings } from './partials/user';
+import { UserInformations, UserSubscription, UserActions } from './partials/user';
 
 class Profile extends Component {
   componentWillMount() {
@@ -29,11 +29,13 @@ class Profile extends Component {
     if(currentUser) {
       return (
         <Grid style={{ height: this.getScreenHeight() }}>
-          <Row>
+          <Row size={2}>
             <UserInformations user={currentUser} />
           </Row>
-          <Row><Text>Settings</Text></Row>
-          <Row>
+          <Row size={2}>
+            <UserActions />
+          </Row>
+          <Row size={3}>
             <UserSubscription />
           </Row>
         </Grid>

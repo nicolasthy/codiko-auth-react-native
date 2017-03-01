@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Platform } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 
 const LoginHeader = () => {
@@ -8,7 +8,7 @@ const LoginHeader = () => {
       <Image
         style={styles.backgroundImageStyle}
         resizeMode="cover"
-        source={require('../../../images/header-background.jpg')}
+        source={require('../../../images/header-background.png')}
       >
         <Animatable.Image
           source={require('../../../images/logo.png')}
@@ -16,7 +16,12 @@ const LoginHeader = () => {
           style={{ width: 200, height: 70 }}
           animation="fadeInUp"
         />
-        <Animatable.Text animation="fadeIn" style={styles.descriptionTextStyle}>Entraînez vous au code de la route avec Codiko et profitez de 1600 questions de code en ligne ainsi que de nombreux tests.</Animatable.Text>
+        <Animatable.Text
+          animation="fadeIn"
+          style={styles.descriptionTextStyle}
+        >
+          Entraînez vous au code de la route avec Codiko et profitez de 1600 questions de code en ligne ainsi que de nombreux tests.
+        </Animatable.Text>
       </Image>
     </Animatable.View>
   );
@@ -28,7 +33,8 @@ const styles = {
     width: null,
     height: null,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    opacity: 1
   },
   descriptionTextStyle: {
     color: '#fff',

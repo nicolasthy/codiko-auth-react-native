@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import { ProgressBar } from '../common';
 
 class ThematicalListRow extends Component {
+  onCardPress() {
+    const serie = {
+      type: 1,
+      category: this.props.theme.letter,
+      label: "Thématique"
+    };
+
+    Actions.statsDetail({ serie: serie });
+  }
+
   render() {
     return (
-      <View style={styles.wrapper}>
-        <View style={[styles.letterContainerStyle, { backgroundColor: this.props.theme.color}]}>
-          <Text style={styles.letterStyle}>{this.props.theme.letter}</Text>
+      <TouchableWithoutFeedback onPress={this.onCardPress.bind(this)}>
+        <View style={styles.wrapper}>
+          <View style={[styles.letterContainerStyle, { backgroundColor: this.props.theme.color}]}>
+            <Text style={styles.letterStyle}>{this.props.theme.letter}</Text>
+          </View>
+          <View style={styles.textContainerStyle}>
+            <Text style={styles.textStyle}>{this.props.theme.label}</Text>
+            <ProgressBar progress={this.props.theme.progress} fillColor={this.props.theme.color} />
+          </View>
         </View>
-        <View style={styles.textContainerStyle}>
-          <Text style={styles.textStyle}>{this.props.theme.label}</Text>
-          <ProgressBar progress={this.props.theme.progress} fillColor={this.props.theme.color} />
-        </View>
-      </View>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -26,9 +39,11 @@ const styles = {
     marginRight: 20,
     marginTop: 5,
     marginBottom: 5,
+    backgroundColor: '#fff',
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.1
+    shadowOpacity: 0.1,
+    elevation: 1
   },
   letterContainerStyle: {
     alignItems: 'center',

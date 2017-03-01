@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Alert, StatusBar } from 'react-native';
+import { Alert, StatusBar, Platform } from 'react-native';
 import { Grid, Row } from 'react-native-elements';
 
 import {
@@ -19,8 +19,14 @@ import {
 import { store } from '../store';
 
 class LoginScreen extends Component {
-  componentWillReceiveProps(nextProps) {
+  componentWillMount() {
     StatusBar.setBarStyle('light-content', true);
+    if(Platform.OS !== 'ios') {
+      StatusBar.setBackgroundColor('#373b46');
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
     this.triggerAlert(nextProps);
   }
 
@@ -47,7 +53,7 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <Grid style={{ backgroundColor: '#373b46' }}>
+      <Grid style={{ backgroundColor: '#30343d' }}>
         {/* HEADER SECTION */}
         <Row size={3}>
           <LoginHeader />

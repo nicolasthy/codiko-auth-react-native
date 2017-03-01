@@ -4,7 +4,8 @@ import { Scene, Router } from 'react-native-router-flux';
 import LoginScreen from './components/LoginScreen';
 import Dashboard from './components/Dashboard';
 import SplashScreen from './components/SplashScreen';
-import StatsDetail from './components/stats/StatsDetail';
+import StatsDetails from './components/partials/stats/StatsDetails';
+import UserSettings from './components/Settings';
 import Viewer from './components/Viewer';
 
 const RouterComponent = () => {
@@ -36,10 +37,10 @@ const RouterComponent = () => {
 
         <Scene
           key="statsDetail"
-          component={StatsDetail}
+          component={StatsDetails}
           title="Statistiques"
           hideNavBar={false}
-          sceneStyle={{ backgroundColor: '#fafafa' }}
+          sceneStyle={{ backgroundColor: '#eff1f4' }}
           leftButtonIconStyle={{ tintColor: '#A7CD2C', marginLeft: 5 }}
           navigationBarStyle={{
             backgroundColor: '#fff',
@@ -47,6 +48,24 @@ const RouterComponent = () => {
             borderBottomColor: '#afafaf'
           }}
           titleStyle={{ color: '#262626', fontWeight: '600' }}
+        />
+
+        <Scene
+          key="settings"
+          component={UserSettings}
+          title="Modifier mon profil"
+          hideNavBar={false}
+          sceneStyle={{ backgroundColor: '#eff1f4' }}
+          leftButtonIconStyle={{ tintColor: '#A7CD2C', marginLeft: 5 }}
+          navigationBarStyle={{
+            backgroundColor: '#fff',
+            borderBottomWidth: 0.5,
+            borderBottomColor: '#afafaf'
+          }}
+          titleStyle={{ color: '#262626', fontWeight: '600' }}
+          rightTitle="Terminer"
+          onRight={() => console.log("Pressed")}
+          rightButtonTextStyle={{ color: '#A7CD2C' }}
         />
       </Scene>
 

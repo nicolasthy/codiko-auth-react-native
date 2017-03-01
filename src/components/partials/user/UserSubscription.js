@@ -4,18 +4,19 @@ import { Grid, Row } from 'react-native-elements';
 
 const UserSubscription = () => {
   return (
-    <Image
-      style={styles.backgroundImageStyle}
-      resizeMode="contain"
-      source={require('../../../images/curved-footer.png')}
-    >
-      <Text>Coucou</Text>
-    </Image>
+    <Grid style={styles.containerStyle}>
+      <Row>
+        <Text>Subscription</Text>
+      </Row>
+    </Grid>
   );
 };
 
 const styles = {
-  
+  containerStyle: {
+    backgroundColor: '#454545',
+    margin: 15
+  }
 }
 
 export { UserSubscription };

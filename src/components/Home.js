@@ -8,7 +8,7 @@ import { TrainingCard } from './utils/TrainingCard';
 class Home extends Component {
   render() {
     const { width, height } = Dimensions.get('window');
-    const screenHeight = (height > width) ? (height - 105) : (width - 105);
+    const screenHeight = (height > width) ? (height - 125) : (width - 125);
 
     return (
       <View style={{ flex: 1, alignSelf: 'stretch', height: screenHeight }}>

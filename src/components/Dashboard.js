@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView, StatusBar } from 'react-native';
+import { View, Text, ScrollView, StatusBar, Platform } from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import Orientation from 'react-native-orientation';
 
@@ -14,13 +14,16 @@ class Dashboard extends Component {
   componentWillMount() {
     console.log(store.getState());
     StatusBar.setBarStyle('dark-content', true);
+    if(Platform.OS !== "ios") {
+      StatusBar.setBackgroundColor('#fff');
+    }
     Orientation.lockToPortrait();
   }
 
   render() {
     return (
       <ScrollableTabView
-        initialPage={2}
+        initialPage={1}
         style={{ marginTop: 20 }}
         tabBarUnderlineStyle={styles.tabBarUnderlineStyle}
         renderTabBar={() => <TabBar />}
