@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { View, Text, ListView, Dimensions } from 'react-native';
 
-import { store } from '../store';
-
-import { AverageScoreCard, ThematicalListRow } from './utils';
+import { AverageScoreCard, ThematicalAverageScoreCard } from './partials/stats';
 
 class Stats extends Component {
   renderThemes(themes) {
     return themes.map((theme, key) => {
-      return <ThematicalListRow key={key} theme={theme} />;
+      return <ThematicalAverageScoreCard key={key} theme={theme} />;
     });
   }
 
@@ -31,8 +29,8 @@ class Stats extends Component {
 
     return (
       <View style={{ flex: 1, alignSelf: 'stretch' }}>
-        <AverageScoreCard type='entrainement' score={36} lastTraining='03/11/2016' />
-        <AverageScoreCard type='examen' score={23} lastTraining='03/11/2016' />
+        <AverageScoreCard serieType={0} />
+        <AverageScoreCard serieType={2} />
 
         <Text style={styles.listLabelStyle}>{"Moyennes thématiques".toUpperCase()}</Text>
         <View>{this.renderThemes(themes)}</View>

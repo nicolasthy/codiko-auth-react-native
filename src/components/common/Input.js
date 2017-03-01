@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TextInput, View } from 'react-native';
 
-const Input = ({ value, onChangeText, placeholder, secureTextEntry, autoCapitalize, inputCustomStyle, keyboardType }) => {
-  const { inputStyle, containerStyle } = styles;
+class Input extends Component {
+  render() {
+    const {
+      value,
+      onChangeText,
+      placeholder,
+      secureTextEntry,
+      autoCapitalize,
+      inputCustomStyle,
+      keyboardType,
+      returnKeyType,
+      onSubmitEditing
+    } = this.props;
 
-  return (
-    <View style={[containerStyle, inputCustomStyle]}>
-      <TextInput
-        secureTextEntry={secureTextEntry}
-        autoCapitalize={autoCapitalize}
-        placeholder={placeholder}
-        autoCorrect={false}
-        style={inputStyle}
-        value={value}
-        onChangeText={onChangeText}
-        keyboardType={keyboardType ? keyboardType : 'default'}
-      />
-    </View>
-  );
+    const { inputStyle, containerStyle } = styles;
+
+    return (
+      <View style={[containerStyle, inputCustomStyle]}>
+        <TextInput
+          ref="input"
+          secureTextEntry={secureTextEntry}
+          autoCapitalize={autoCapitalize}
+          placeholder={placeholder}
+          autoCorrect={false}
+          style={inputStyle}
+          value={value}
+          onChangeText={onChangeText}
+          keyboardType={keyboardType ? keyboardType : 'default'}
+          underlineColorAndroid='rgba(0,0,0,0)'
+          returnKeyType={returnKeyType}
+          onSubmitEditing={onSubmitEditing}
+        />
+      </View>
+    );
+  }
 };
 
 const styles = {

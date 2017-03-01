@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableWithoutFeedback } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
-import { Actions, ActionConst } from 'react-native-router-flux';
+import { View, Text, TouchableWithoutFeedback } from 'react-native';
 
 class AverageScoreCard extends Component {
   onCardPress() {
-    Actions.statsDetail({ statsType: this.props.type });
+    const serie = {
+      type: this.props.serieType,
+      label: this.props.serieType === 0 ? "Entrainement" : "Examen"
+    };
+
+    Actions.statsDetail({ serie: serie });
   }
 
   render() {
-    const { type, score, lastTraining } = this.props;
+    const { serieType } = this.props;
+    const type = serieType === 0 ? "Entrainement" : "Examen";
 
     return (
       <TouchableWithoutFeedback onPress={this.onCardPress.bind(this)}>
         <View
           style={[
             styles.containerStyle,
-            type === 'entrainement' ? styles.pedagogicalStyle : styles.examStyle
+            serieType === 0 ? styles.pedagogicalStyle : styles.examStyle
           ]}
         >
           <View>
@@ -24,11 +30,11 @@ class AverageScoreCard extends Component {
           </View>
           <View>
             <View style={{ flexDirection: 'row', alignSelf: 'flex-end', alignItems: 'flex-end' }}>
-              <Text style={styles.scoreTextStyle}>{score}</Text>
+              <Text style={styles.scoreTextStyle}>40</Text>
               <Text style={styles.countTextStyle}>/40</Text>
             </View>
             <View>
-              <Text style={styles.smallTextStyle}>Dernière série le {lastTraining}</Text>
+              <Text style={styles.smallTextStyle}>Dernière série le </Text>
             </View>
           </View>
         </View>
@@ -50,7 +56,8 @@ const styles = {
     paddingBottom: 15,
     shadowColor: '#000',
     shadowOffset: { width: 1, height: 1 },
-    shadowOpacity: 0.1
+    shadowOpacity: 0.1,
+    elevation: 1
   },
   pedagogicalStyle: {
     backgroundColor: '#A7CD2C'
@@ -69,7 +76,8 @@ const styles = {
     fontSize: 32,
     fontWeight: '700',
     textShadowColor: 'rgba(0,0,0, 0.03)',
-    textShadowOffset: { width: 2, height: 2 }
+    textShadowOffset: { width: 2, height: 2 },
+    elevation: 1
   },
   countTextStyle: {
     color: '#fff',
@@ -83,5 +91,6 @@ const styles = {
     fontSize: 12
   }
 };
+
 
 export { AverageScoreCard };

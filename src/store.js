@@ -30,13 +30,13 @@ export const persistor = persistStore(store, { storage: AsyncStorage }, () => {
     }
   }, 2000);
 });
-persistor.purge();
+// persistor.purge();
 
 // AsyncStorage.getItem('reduxPersist:auth')
 //   .then((data) => console.log(data))
 
 // Configure JSON API
-const HOST = (Platform.OS === 'ios') ? 'http://localhost:3000' : 'http://10.0.2.2:3000';
+const HOST = (Platform.OS === 'ios') ? 'http://localhost:3000' : 'http://10.0.3.2:3000';
 
 store.dispatch(setEndpointHost(HOST));
 store.dispatch(setEndpointPath('/api'));
