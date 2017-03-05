@@ -1,5 +1,5 @@
 import { Actions } from 'react-native-router-flux';
-import { apiRequest, checkStatus } from './api';
+import { apiRequest } from 'redux-json-api/lib/utils';
 
 import {
   FETCH_EXAMINATION_TRAININGS_SUCCESS,
@@ -9,7 +9,7 @@ import {
 
 const getTrainingsByType = (token, serie, getState) => {
   const { host: apiHost, path: apiPath, headers } = getState().api.endpoint;
-  let endpoint = `${apiHost}/api/training_sessions?filter[serie_serie_type_eq]=${serie.type}&filter[completed_at_not_null]=1&sort=-completed_at&access_token=${token}`;
+  let endpoint = `${apiHost}/api/trainings?filter[serie_serie_type_eq]=${serie.type}&filter[completed_at_not_null]=1&sort=-completed_at&access_token=${token}`;
 
   if(serie.category) {
     endpoint += `&filter[serie_category_eq]=${serie.category}`;
@@ -25,7 +25,6 @@ export const fetchTrainingsByType = (token, serie) => {
   return (dispatch, getState) => {
     return new Promise((resolve, reject) => {
       getTrainingsByType(token, serie, getState)
-        .then(response => response.json())
         .then(({ data }) => {
           if(serie.type === 0) {
             dispatch({ type: FETCH_PEDAGOGICAL_TRAININGS_SUCCESS, payload: data });

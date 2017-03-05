@@ -1,12 +1,15 @@
-export const USERNAME_CHANGED = 'username_changed';
-export const PASSWORD_CHANGED = 'password_changed';
-export const LOGIN_USER_SUCCESS = 'login_user_success';
-export const LOGIN_USER_ERROR = 'login_user_error';
-export const LOGIN_USER_PENDING = 'login_user_pending';
-export const LOGIN_USER_RETRY = 'login_user_retry';
+/*
+ * Authentication actions types
+ */
+export const SET_USERNAME  = 'SET_USERNAME';
+export const SET_PASSWORD  = 'SET_PASSWORD';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR   = 'LOGIN_ERROR';
+export const LOGIN_PENDING = 'LOGIN_PENDING';
+export const LOGIN_RETRY   = 'LOGIN_RETRY';
 
-export const FETCH_CURRENT_USER = 'fetch_current_user';
+export const FETCH_CURRENT_USER = 'FETCH_CURRENT_USER';
 
-export const FETCH_EXAMINATION_TRAININGS_SUCCESS = 'fetch_examination_trainings_success';
-export const FETCH_PEDAGOGICAL_TRAININGS_SUCCESS = 'fetch_pedagogical_trainings_success';
-export const FETCH_THEMATICAL_TRAININGS_SUCCESS = 'fetch_thematical_trainings_success';
+export const FETCH_EXAMINATION_TRAININGS_SUCCESS = 'FETCH_EXAMINATION_TRAININGS_SUCCESS';
+export const FETCH_PEDAGOGICAL_TRAININGS_SUCCESS = 'FETCH_PEDAGOGICAL_TRAININGS_SUCCESS';
+export const FETCH_THEMATICAL_TRAININGS_SUCCESS  = 'FETCH_THEMATICAL_TRAININGS_SUCCESS';

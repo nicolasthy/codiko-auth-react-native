@@ -4,12 +4,10 @@ import { persistStore, autoRehydrate } from 'redux-persist';
 import { AsyncStorage, Platform } from 'react-native';
 import { setEndpointHost, setEndpointPath, setHeaders } from 'redux-json-api';
 import { Actions, ActionConst } from 'react-native-router-flux';
-
 import reducer from './reducers';
-import {
-  CONTENT_TYPE_HEADER,
-  ACCEPT_HEADER
-} from './config';
+
+export const CONTENT_TYPE_HEADER = 'application/json';
+export const ACCEPT_HEADER = 'application/vnd.codiko.v2';
 
 // Setup middlewares
 const enhancer = compose(
@@ -20,6 +18,8 @@ const enhancer = compose(
 // Creates redux store
 export const store = createStore(reducer, enhancer);
 
+// TODO
+// Both conditions run same code !!??
 // Configure and clean up storage
 export const persistor = persistStore(store, { storage: AsyncStorage }, () => {
   setTimeout(() => {
@@ -30,14 +30,16 @@ export const persistor = persistStore(store, { storage: AsyncStorage }, () => {
     }
   }, 2000);
 });
+
+// NOTE
+// Uncomment this line to purge the store for debugging
 // persistor.purge();
 
-// AsyncStorage.getItem('reduxPersist:auth')
-//   .then((data) => console.log(data))
-
-// Configure JSON API
+// NOTE
+// Required on development environment
 const HOST = (Platform.OS === 'ios') ? 'http://localhost:3000' : 'http://10.0.3.2:3000';
 
+// Configure JSON API
 store.dispatch(setEndpointHost(HOST));
 store.dispatch(setEndpointPath('/api'));
 store.dispatch(setHeaders({

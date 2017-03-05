@@ -10,10 +10,10 @@ import {
 } from './partials/login';
 
 import {
-  usernameChanged,
-  passwordChanged,
-  loginUser,
-  loginUserRetry
+  setUsername,
+  setPassword,
+  login,
+  loginRetry
 } from '../actions';
 
 import { store } from '../store';
@@ -30,23 +30,23 @@ class LoginScreen extends Component {
     this.triggerAlert(nextProps);
   }
 
-  onUsernameChange(text) {
-    store.dispatch(usernameChanged(text));
+  onUsernameChange(value) {
+    store.dispatch(setUsername(value));
   }
 
-  onPasswordChanged(text) {
-    store.dispatch(passwordChanged(text));
+  onPasswordChanged(value) {
+    store.dispatch(setPassword(value));
   }
 
   onButtonPressed() {
     const { username, password } = this.props;
-    store.dispatch(loginUser({ username, password }));
+    store.dispatch(login({ username, password }));
   }
 
   triggerAlert(props) {
     if (props.error) {
       Alert.alert('Erreur de connexion', 'Les identifiants saisis sont incorrects.', [{
-        text: 'Reesayer', onPress: () => store.dispatch(loginUserRetry())
+        text: 'Reesayer', onPress: () => store.dispatch(loginRetry())
       }], { cancelable: false });
     }
   }

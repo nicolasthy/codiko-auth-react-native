@@ -3474,9 +3474,9 @@ react-native-material-initials@^0.0.10:
   version "0.0.10"
   resolved "https://registry.yarnpkg.com/react-native-material-initials/-/react-native-material-initials-0.0.10.tgz#0011a00e598c5ba7a254f4243ba2820855a46e16"
 
-"react-native-orientation@git+https://git@github.com/yamill/react-native-orientation.git":
+"react-native-orientation@git+https://github.com/jedt/react-native-orientation.git":
   version "1.17.0"
-  resolved "git+https://git@github.com/yamill/react-native-orientation.git#278291739e2b7c8ab208fdf404e4b139e24b4a3f"
+  resolved "git+https://github.com/jedt/react-native-orientation.git#47d1f1be79a3c67134cb494c60f0aa9edb31677f"
 
 react-native-router-flux@3.35.0:
   version "3.35.0"

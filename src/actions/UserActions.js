@@ -1,5 +1,5 @@
 import { Actions } from 'react-native-router-flux';
-import { apiRequest, checkStatus } from './api';
+import { apiRequest } from 'redux-json-api/lib/utils';
 
 import {
   FETCH_CURRENT_USER
@@ -19,7 +19,6 @@ export const fetchCurrentUser = (token) => {
   return (dispatch, getState) => {
     return new Promise((resolve, reject) => {
       getCurrentUser(token, getState)
-        .then(response => response.json())
         .then(({ data }) => {
           dispatch({ type: FETCH_CURRENT_USER, payload: data });
         })

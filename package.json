@@ -13,7 +13,7 @@
 		"react-native-animatable": "^1.1.0",
 		"react-native-elements": "^0.9.7",
 		"react-native-material-initials": "^0.0.10",
-		"react-native-orientation": "git+https://git@github.com/yamill/react-native-orientation.git",
+		"react-native-orientation": "git+https://github.com/jedt/react-native-orientation.git",
 		"react-native-router-flux": "3.35.0",
 		"react-native-scrollable-tab-view": "^0.7.2",
 		"react-native-vector-icons": "^4.0.0",
