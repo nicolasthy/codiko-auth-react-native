@@ -9,7 +9,7 @@ import {
 
 const getTrainingsByType = (token, serie, getState) => {
   const { host: apiHost, path: apiPath, headers } = getState().api.endpoint;
-  let endpoint = `${apiHost}/api/trainings?filter[serie_serie_type_eq]=${serie.type}&filter[completed_at_not_null]=1&sort=-completed_at&access_token=${token}`;
+  let endpoint = `${apiHost}/api/trainings?filter[serie_serie_type_eq]=${serie.type}&filter[completed_at_not_null]=1&sort=-completed_at`;
 
   if(serie.category) {
     endpoint += `&filter[serie_category_eq]=${serie.category}`;

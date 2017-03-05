@@ -33,7 +33,7 @@ export const persistor = persistStore(store, { storage: AsyncStorage }, () => {
 
 // NOTE
 // Uncomment this line to purge the store for debugging
-// persistor.purge();
+persistor.purge();
 
 // NOTE
 // Required on development environment

@@ -11,8 +11,8 @@ import { UserInformations, UserSubscription, UserActions } from './partials/user
 
 class Profile extends Component {
   componentWillMount() {
-    const access_token = store.getState().auth.access_token;
-    store.dispatch(fetchCurrentUser(access_token));
+    // const access_token = store.getState().auth.access_token;
+    store.dispatch(fetchCurrentUser());
   }
 
   getScreenHeight() {

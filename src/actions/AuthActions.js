@@ -1,4 +1,5 @@
 import { Actions } from 'react-native-router-flux';
+import { setAccessToken } from 'redux-json-api';
 import { apiRequest } from 'redux-json-api/lib/utils';
 import { SET_USERNAME, SET_PASSWORD, LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_PENDING, LOGIN_RETRY } from './types';
 
@@ -53,7 +54,9 @@ export const login = (user) => {
         body: JSON.stringify(resource)
       })
       .then(data => {
-        dispatch(loginSuccess(data.access_token));
+        const token = data.access_token
+        dispatch(setAccessToken(token));
+        dispatch(loginSuccess(token));
         Actions.main();
         resolve();
       })
