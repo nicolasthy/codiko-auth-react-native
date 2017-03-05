@@ -1,4 +1,4 @@
-# Codiko Mobile
+# Codiko Mobile [![CircleCI](https://circleci.com/gh/Permigo/codiko-mobile/tree/master.svg?style=shield&circle-token=30e80b25d169faf15e563f9ad3e3e06e99042668)](https://circleci.com/gh/Permigo/codiko-mobile/tree/master)
 
 React Native iOS and Android app for Codiko
 
