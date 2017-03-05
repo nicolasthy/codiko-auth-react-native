@@ -9,8 +9,7 @@ import { Spinner } from '../../common';
 
 class StatsDetails extends Component {
   componentWillMount() {
-    const access_token = store.getState().auth.access_token;
-    store.dispatch(fetchTrainingsByType(access_token, this.props.serie));
+    store.dispatch(fetchTrainingsByType(this.props.serie));
   }
 
   renderRow (rowData, sectionID) {
@@ -37,7 +36,7 @@ class StatsDetails extends Component {
   render() {
     if(this.props.trainings) {
       const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      let dataSource = ds.cloneWithRows(this.props.trainings);
+      let dataSource = ds.cloneWithRows(this.props.trainings.data);
 
       return (
         <ScrollView style={{ flex: 1, marginTop: 63 }}>

@@ -1,20 +1,19 @@
 import { Actions } from 'react-native-router-flux';
 import { apiRequest } from 'redux-json-api/lib/utils';
+import { FETCHED_PEDAGOGICAL_TRAININGS, FETCHED_THEMATICAL_TRAININGS, FETCHED_EXAMINATION_TRAININGS } from './types';
 
-import {
-  FETCH_EXAMINATION_TRAININGS_SUCCESS,
-  FETCH_PEDAGOGICAL_TRAININGS_SUCCESS,
-  FETCH_THEMATICAL_TRAININGS_SUCCESS
-} from './types';
+const PEDAGOGICAL_TRAINING = 0;
+const THEMATICAL_TRAINING = 1;
+const EXAMINATION_TRAINING = 2;
 
-export const fetchTrainingsByType = (token, serie) => {
+export const fetchTrainingsByType = (serie) => {
   return (dispatch, getState) => {
     return new Promise((resolve, reject) => {
       const filters = Object.assign({
         serie_serie_type_eq: serie.type,
         completed_at_not_null: 1
       },
-        serie.category.length && { serie_category_eq: serie.category }
+        serie.category && { serie_category_eq: serie.category }
       )
 
       const filterQuery = Object.keys(filters).map(key => {
@@ -29,20 +28,20 @@ export const fetchTrainingsByType = (token, serie) => {
         method: 'GET'
       })
       .then(data => {
-        // TODO
-        // Do we really need this ? If yes, use const and swicth/case !
-        if(serie.type === 0) {
-          dispatch({ type: FETCH_PEDAGOGICAL_TRAININGS_SUCCESS, payload: data });
+        switch (serie.type) {
+          case PEDAGOGICAL_TRAINING:
+            dispatch({ type: FETCHED_PEDAGOGICAL_TRAININGS, payload: data });
+            break;
+          case THEMATICAL_TRAINING:
+            dispatch({ type: FETCHED_THEMATICAL_TRAININGS, payload: data, category: serie.category });
+            break;
+          case EXAMINATION_TRAINING:
+            dispatch({ type: FETCHED_EXAMINATION_TRAININGS, payload: data });
+            break;
         }
-        else if(serie.type === 1) {
-          dispatch({ type: FETCH_THEMATICAL_TRAININGS_SUCCESS, payload: data, category: serie.category });
-        }
-        else {
-          dispatch({ type: FETCH_EXAMINATION_TRAININGS_SUCCESS, payload: data });
-        }
-        resolve()
-      }).catch(error => {
-        console.log(error);
+        resolve();
+      })
+      .catch(error => {
         reject(error);
       });
     });
