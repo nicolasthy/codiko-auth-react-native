@@ -54,6 +54,7 @@ export const login = (user) => {
         body: JSON.stringify(resource)
       })
       .then(data => {
+        console.log(data)
         const token = data.access_token
         dispatch(setAccessToken(token));
         dispatch(loginSuccess(token));
